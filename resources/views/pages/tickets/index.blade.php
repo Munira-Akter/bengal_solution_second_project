@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 @section('main')
 <div class="content_wrap with_title">
     <div class="top_panel_title">
        <div class="top_panel_title_inner">
-          <h1 class="page_title">Our Documentation Resources</h1>
+          <h1 class="page_title" style="margin-top: 30px;">Our Documentation Resources</h1>
        </div>
     </div>
     <article class="post_item post_item_single post_format_standard page hentry">
@@ -15,25 +15,25 @@
                       <div id="sc_tabs_559" class="sc_tabs sc_tabs_style_3" data-active="0">
                          <ul class="sc_tabs_titles">
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_119_1_15" class="theme_button" id="sc_tab_119_1_15_tab">Marketing department</a>
+                               <a href="sc_tab_119_1_15" class="theme_button" id="sc_tab_119_1_15_tab">Marketing department</a>
                             </li>
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_119_2_67" class="theme_button" id="sc_tab_119_2_67_tab">Management</a>
+                               <a href="sc_tab_119_2_67" class="theme_button" id="sc_tab_119_2_67_tab">Management</a>
                             </li>
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_552_8" class="theme_button" id="sc_tab_552_8_tab">Accounting department</a>
+                               <a href="sc_tab_552_8" class="theme_button" id="sc_tab_552_8_tab">Accounting department</a>
                             </li>
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_557_8" class="theme_button" id="sc_tab_557_8_tab">Sales department</a>
+                               <a href="sc_tab_557_8" class="theme_button" id="sc_tab_557_8_tab">Sales department</a>
                             </li>
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_979_10" class="theme_button" id="sc_tab_979_10_tab">IT Departments</a>
+                               <a href="sc_tab_979_10" class="theme_button" id="sc_tab_979_10_tab">IT Departments</a>
                             </li>
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_134_3" class="theme_button" id="sc_tab_134_3_tab">Innovative research</a>
+                               <a href="sc_tab_134_3" class="theme_button" id="sc_tab_134_3_tab">Innovative research</a>
                             </li>
                             <li class="sc_tabs_title">
-                               <a href="#sc_tab_023_2" class="theme_button" id="sc_tab_023_2_tab">HR Department</a>
+                               <a href="sc_tab_023_2" class="theme_button" id="sc_tab_023_2_tab">HR Department</a>
                             </li>
                          </ul>
 
@@ -352,7 +352,10 @@
                                            </div>
                                            <div class="column-1_2">
                                               <span class="wpcf7-form-control-wrap your-subject">
-                                                 <input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Department" />
+                                                  <select class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email">
+                                                      <option value=""> -- Select Department -- </option>
+                                                      <option value="">Marketing</option>
+                                                  </select>
                                               </span>
                                            </div>
                                            <div class="column-1_2">
@@ -385,3 +388,22 @@
     @include('partials.back_to_top')
  </div>
  @endsection
+ @push('scripts')
+     <script>
+         let sc_tabs_content = document.querySelectorAll('.sc_tabs_content');
+         document.querySelectorAll('.theme_button').forEach(btn => {
+            btn.addEventListener('click' , function(e){
+            e.preventDefault(); let id = '';
+            id = this.getAttribute('href')
+            sc_tabs_content.forEach(content => {
+                let content_id = content.getAttribute('id');
+                if(content_id == id){
+                    content.className = "first"
+                }else{
+                    // content.classList.remove('first')
+                }
+            })
+         })
+        })
+     </script>
+ @endpush

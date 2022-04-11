@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 @section('main')
 <div class="content_wrap">
     <article class="post_item post_item_single post_format_standard page hentry">

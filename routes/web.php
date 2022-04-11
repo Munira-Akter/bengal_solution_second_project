@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\CommunityController;
-use App\Http\Controllers\FileTicketController;
-use App\Http\Controllers\homeController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileTicketController;
 
 
 Route::prefix('/')->group(function(){
-    Route::get('/' , [homeController::class , 'index'])->name('home.index');
+    Route::get('/' , [DashboardController::class , 'index'])->name('home.index');
     Route::prefix('file-tickets')->as('file.')->group(function(){
         Route::get('/' , [FileTicketController::class , 'index'])->name('index');
+        Route::get('/single' , [FileTicketController::class , 'show'])->name('show');
     });
     Route::prefix('community')->as('community.')->group(function(){
         Route::get('/' , [CommunityController::class , 'index'])->name('index');
@@ -26,3 +27,7 @@ Route::prefix('/')->group(function(){
     });
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

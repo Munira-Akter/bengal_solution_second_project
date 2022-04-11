@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 @section('main')
 <div class="content_wrap with_title">
     <div class="top_panel_title">

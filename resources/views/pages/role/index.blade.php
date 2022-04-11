@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 @section('main')
 <div class="content_wrap with_title">
     <div class="top_panel_title">
@@ -37,7 +37,7 @@
                     <td> Feb 24, 2015</td>
                     <td><a class="custom-btn">Edit</a>&nbsp;<a class="custom-btn-danger">Delete</a></td>
                  </tr>
-                 
+
               </tbody>
            </table>
            <p></p>

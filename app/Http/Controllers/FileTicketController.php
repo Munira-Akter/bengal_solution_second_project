@@ -10,4 +10,9 @@ class FileTicketController extends Controller
     public function index(){
         return view('pages.tickets.index');
     }
+
+    // Single file ticket show
+    public function show(){
+        return view('pages.tickets.single');
+    }
 }
